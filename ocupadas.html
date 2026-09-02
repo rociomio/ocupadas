@@ -1,0 +1,1264 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>OCUPADAS — cuerpo, ruido y territorio</title>
+
+  <meta name="description" content="OCUPADAS: una obra de cuerpo, máquinas, ruido y territorio entre la maternidad, el arte y la ruralidad patagónica.">
+
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="OCUPADAS — cuerpo, ruido y territorio">
+  <meta property="og:description" content="Ocupar la escena. Ocupar la máquina. Ocupar el espacio. Una danza de liberación entre glitch, noise y reparación.">
+  <meta property="og:image" content="__ZAPIA_SITE_ORIGIN__/_z/og.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="__ZAPIA_SITE_ORIGIN__/_z/og.png">
+
+  <link rel="manifest" href="__ZAPIA_SITE_URL__/manifest.webmanifest">
+  <meta name="theme-color" content="#171717">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="OCUPADAS">
+  <link rel="apple-touch-icon" href="__ZAPIA_SITE_URL__/apple-touch-icon.png">
+
+  <style>
+    :root {
+      --ink: #171717;
+      --paper: #efe9dd;
+      --acid: #c8f21a;
+      --violet: #9c68ff;
+      --rust: #d65b36;
+      --line: rgba(23,23,23,.24);
+      --muted: #625e57;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: clip;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.45;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 4vw;
+      border-bottom: 1px solid var(--line);
+      background: var(--paper);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .site-nav a {
+      text-decoration: none;
+    }
+
+    .nav-panel {
+      position: relative;
+    }
+
+    .nav-panel summary {
+      display: none;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 16px 24px;
+    }
+
+    .hero {
+      min-height: 88vh;
+      padding: 7vw 4vw 5vw;
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 5vw;
+      align-items: end;
+      background: var(--ink);
+      color: var(--paper);
+      position: relative;
+    }
+
+    .eyebrow,
+    .section-label {
+      font-size: .7rem;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-weight: 700;
+    }
+
+    .hero h1 {
+      position: relative;
+      z-index: 1;
+      margin: 26px 0 24px;
+      max-width: 100%;
+      font-size: clamp(3.1rem, 12vw, 13rem);
+      line-height: .79;
+      letter-spacing: -.09em;
+      font-weight: 900;
+    }
+
+    .hero-note {
+      position: relative;
+      z-index: 1;
+      max-width: 340px;
+      align-self: start;
+      margin-top: 3vw;
+      font-family: Georgia, serif;
+      font-size: clamp(1.1rem, 2vw, 1.6rem);
+      line-height: 1.18;
+    }
+
+    .hero-meta {
+      position: relative;
+      z-index: 1;
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      border-top: 1px solid rgba(239,233,221,.4);
+      padding-top: 14px;
+      font-size: .74rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .intro {
+      padding: 10vw 4vw 11vw;
+      display: grid;
+      grid-template-columns: .55fr 1.45fr;
+      gap: 6vw;
+    }
+
+    .intro h2,
+    .manifesto h2 {
+      margin: 0;
+      font-size: clamp(2.2rem, 5vw, 5.5rem);
+      line-height: .92;
+      letter-spacing: -.065em;
+    }
+
+    .intro-copy {
+      max-width: 780px;
+      font-family: Georgia, serif;
+      font-size: clamp(1.45rem, 3vw, 2.75rem);
+      line-height: 1.08;
+      letter-spacing: -.025em;
+    }
+
+    .intro-copy p {
+      margin: 0 0 1em;
+    }
+
+    .intro-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .manifesto {
+      padding: 7vw 4vw 8vw;
+      background: var(--acid);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7vw;
+      align-items: start;
+    }
+
+    .manifesto h2 {
+      max-width: 520px;
+    }
+
+    .manifesto-text {
+      font-size: clamp(1.25rem, 2vw, 1.8rem);
+      max-width: 680px;
+    }
+
+    .manifesto-text p {
+      margin-top: 0;
+    }
+
+    .manifesto-text p + p {
+      margin-top: 1.3em;
+    }
+
+    .manifesto-mark {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 8px 12px;
+      background: var(--ink);
+      color: var(--acid);
+      font-size: .68rem;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      font-weight: 700;
+    }
+
+    .practices {
+      padding: 9vw 4vw;
+      background: #d8d0c3;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 48px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      max-width: 630px;
+      font-size: clamp(2.4rem, 6vw, 6rem);
+      line-height: .87;
+      letter-spacing: -.075em;
+    }
+
+    .section-head p {
+      max-width: 310px;
+      margin: 0;
+    }
+
+    .practice-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--ink);
+      border: 1px solid var(--ink);
+    }
+
+    .practice {
+      min-height: 310px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--paper);
+    }
+
+    .practice:nth-child(2) {
+      background: var(--violet);
+    }
+
+    .practice:nth-child(3) {
+      background: var(--rust);
+      color: var(--paper);
+    }
+
+    .practice:nth-child(4) {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .practice-number {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .13em;
+    }
+
+    .practice h3 {
+      margin: 70px 0 10px;
+      font-size: clamp(2rem, 4vw, 4rem);
+      line-height: .9;
+      letter-spacing: -.06em;
+    }
+
+    .practice p {
+      margin: 0;
+      max-width: 430px;
+      font-size: 1.03rem;
+    }
+
+    .artists {
+      padding: 9vw 4vw;
+      background: var(--paper);
+    }
+
+    .artist-list {
+      border-top: 1px solid var(--ink);
+    }
+
+    .artist {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 5vw;
+      padding: 32px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .artist h3 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 4.2rem);
+      line-height: .9;
+      letter-spacing: -.065em;
+    }
+
+    .artist h3 span {
+      display: block;
+      color: var(--muted);
+      font-size: .36em;
+      letter-spacing: .02em;
+      margin-top: 10px;
+    }
+
+    .artist p {
+      margin: 0;
+      max-width: 690px;
+      font-family: Georgia, serif;
+      font-size: clamp(1.15rem, 2vw, 1.55rem);
+      line-height: 1.2;
+    }
+
+    .link-row a {
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
+
+    .closing {
+      padding: 9vw 4vw 10vw;
+      background: var(--violet);
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 7vw;
+    }
+
+    .closing h2 {
+      margin: 0;
+      font-size: clamp(3rem, 9vw, 9rem);
+      line-height: .8;
+      letter-spacing: -.09em;
+    }
+
+    .closing-copy {
+      font-size: 1.25rem;
+      max-width: 470px;
+    }
+
+    .rider {
+      padding: 9vw 4vw;
+      background: var(--paper);
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap: 6vw;
+      align-items: start;
+    }
+
+    .rider h2 {
+      margin: 10px 0 22px;
+      font-size: clamp(2.4rem, 6vw, 6rem);
+      line-height: .87;
+      letter-spacing: -.075em;
+    }
+
+    .rider-credits {
+      margin: 0;
+      max-width: 28ch;
+      font-size: .92rem;
+      line-height: 1.55;
+    }
+
+    .rider-block + .rider-block {
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+    }
+
+    .rider-block h3 {
+      margin: 0 0 14px;
+      font-size: .7rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .rider-block ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .rider-block li {
+      position: relative;
+      padding-left: 1.1em;
+      max-width: 62ch;
+      font-family: Georgia, serif;
+      font-size: clamp(1.02rem, 1.7vw, 1.25rem);
+      line-height: 1.35;
+    }
+
+    .rider-block li + li {
+      margin-top: .75em;
+    }
+
+    .rider-block li:before {
+      content: "—";
+      position: absolute;
+      left: 0;
+    }
+
+    .rider-note {
+      margin: 40px 0 0;
+      max-width: 46ch;
+      color: var(--muted);
+      font-size: .86rem;
+      letter-spacing: .02em;
+    }
+
+    .contact {
+      padding: 8vw 4vw 110px;
+      background: var(--ink);
+      color: var(--paper);
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: 6vw;
+    }
+
+    .contact h2 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 5rem);
+      line-height: .88;
+      letter-spacing: -.07em;
+    }
+
+    .contact-copy {
+      max-width: 700px;
+    }
+
+    .contact-copy p {
+      margin-top: 0;
+      font-family: Georgia, serif;
+      font-size: 1.3rem;
+    }
+
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 28px;
+      margin-top: 34px;
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .source-note {
+      margin-top: 62px !important;
+      color: #aaa49a;
+      font-family: Arial, sans-serif !important;
+      font-size: .74rem !important;
+      line-height: 1.5;
+    }
+
+    .gallery {
+      padding: 0 0 0 4vw;
+      background: var(--ink);
+      color: var(--paper);
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(260px, .75fr);
+      align-items: stretch;
+    }
+
+    .gallery-stage {
+      position: relative;
+      min-width: 0;
+    }
+
+    .gallery-track {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      height: min(86vh, 820px);
+      padding: 28px 56px 28px 0;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      touch-action: pan-x;
+      overscroll-behavior-x: contain;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .gallery-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .gallery-track figure {
+      flex: 0 0 auto;
+      margin: 0;
+      height: 100%;
+      max-width: min(92%, 1200px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      scroll-snap-align: start;
+    }
+
+    .gallery-track img,
+    .gallery-track video {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      background: transparent;
+    }
+
+    .gallery-controls {
+      position: absolute;
+      left: 18px;
+      bottom: 22px;
+      z-index: 2;
+      display: flex;
+      gap: 8px;
+    }
+
+    .gallery-controls button {
+      width: 48px;
+      height: 48px;
+      border: 0;
+      background: var(--acid);
+      color: var(--ink);
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .gallery-copy {
+      position: sticky;
+      top: 64px;
+      align-self: start;
+      min-height: min(86vh, 820px);
+      padding: 7vw 4vw 7vw 5vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-left: 1px solid rgba(239,233,221,.22);
+    }
+
+    .gallery-copy p {
+      margin: 0;
+      max-width: 22ch;
+      font-family: Georgia, serif;
+      font-size: clamp(1.55rem, 2.6vw, 2.55rem);
+      line-height: 1.12;
+      letter-spacing: -.03em;
+    }
+
+    .collaboration {
+      padding: 9vw 4vw;
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .collaboration .section-head {
+      align-items: flex-end;
+    }
+
+    .collaboration .section-head h2 {
+      max-width: none;
+    }
+
+    .collaboration-layout {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 6vw;
+      align-items: start;
+    }
+
+    .collaboration-player {
+      background: #0b0b0b;
+      aspect-ratio: 16 / 9;
+    }
+
+    .collaboration-player video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #0b0b0b;
+    }
+
+    .collaboration-copy h3 {
+      margin: 0 0 18px;
+      font-size: clamp(1.2rem, 2vw, 1.7rem);
+      letter-spacing: -.03em;
+    }
+
+    .collaboration-copy p {
+      margin: 0 0 1.15em;
+      max-width: 46ch;
+      font-family: Georgia, serif;
+      font-size: clamp(1.02rem, 1.6vw, 1.22rem);
+      line-height: 1.35;
+    }
+
+    .collaboration-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 1080px) {
+      .gallery {
+        padding: 0;
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-track {
+        padding: 22px 18px;
+      }
+
+      .gallery-copy {
+        position: static;
+        min-height: 0;
+        padding: 10vw 6vw 12vw;
+        border-left: 0;
+        border-top: 1px solid rgba(239,233,221,.22);
+      }
+
+      .gallery-copy p {
+        max-width: none;
+      }
+
+      .collaboration-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .site-nav {
+        align-items: center;
+      }
+
+      .nav-panel summary {
+        display: block;
+        list-style: none;
+        cursor: pointer;
+        padding: 10px 0 10px 12px;
+        user-select: none;
+      }
+
+      .nav-panel summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .nav-panel:not([open]) .nav-links {
+        display: none;
+      }
+
+      .nav-panel[open] .nav-links {
+        display: flex;
+        position: absolute;
+        right: 0;
+        top: calc(100% + 8px);
+        min-width: min(220px, 72vw);
+        flex-direction: column;
+        gap: 0;
+        background: var(--paper);
+        border: 1px solid var(--line);
+        box-shadow: 0 12px 30px rgba(23, 23, 23, .12);
+      }
+
+      .nav-links a {
+        padding: 14px 18px;
+      }
+
+      .hero {
+        min-height: 82vh;
+        padding-top: 18vw;
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.7rem, 16vw, 4.4rem);
+        letter-spacing: -.06em;
+      }
+
+      .hero-note {
+        margin-top: 0;
+        max-width: 270px;
+      }
+
+      .hero-meta {
+        margin-top: 40px;
+        display: block;
+        line-height: 1.8;
+      }
+
+      .hero-meta span {
+        display: block;
+      }
+
+      .intro,
+      .manifesto,
+      .closing,
+      .rider,
+      .contact {
+        grid-template-columns: 1fr;
+        gap: 38px;
+      }
+
+      .intro {
+        padding-top: 18vw;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 24px;
+      }
+
+      .practice-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .practice {
+        min-height: 250px;
+      }
+
+      .artist {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .closing h2 {
+        max-width: 470px;
+      }
+
+      .gallery-track {
+        height: min(64vh, 560px);
+        gap: 14px;
+      }
+
+      .gallery-track figure {
+        max-width: 88%;
+      }
+
+      .gallery-controls button {
+        width: 44px;
+        height: 44px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hero h1 {
+        font-size: clamp(2.5rem, 15vw, 3.6rem);
+      }
+
+      .gallery-track {
+        height: min(58vh, 420px);
+      }
+
+      .nav-links {
+        gap: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="site-nav" aria-label="Navegación principal">
+    <a href="#inicio">OCUPADAS</a>
+
+    <details class="nav-panel">
+      <summary>Menú</summary>
+      <div class="nav-links">
+        <a href="#obra">La obra</a>
+        <a href="#practicas">Prácticas</a>
+        <a href="#aletas">Aletas</a>
+        <a href="#rider">Rider</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </details>
+  </nav>
+
+  <header class="hero" id="inicio">
+    <div>
+      <div class="eyebrow">Performance · Patagonia</div>
+      <h1>OCUPADAS</h1>
+    </div>
+
+    <p class="hero-note">
+      Una danza, una liberación; entre glitch, noise e interferencias.
+    </p>
+
+    <div class="hero-meta">
+      <span> Maia Koenig x Rocío Mio </span>
+      <span>Cuerpo · máquina · territorio · tiempo</span>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="intro" id="obra">
+      <div>
+        <div class="section-label">01 / La obra</div>
+        <h2>Ocupar lo que siempre fue nuestro.</h2>
+      </div>
+
+      <div class="intro-copy">
+        <p>
+          Ocupar la escena. Ocupar la máquina. Ocupar el espacio.
+          Ocupar el tiempo. Ocupar esta experiencia.
+        </p>
+      </div>
+    </section>
+
+    <section class="gallery" id="archivo" aria-label="Archivo visual">
+      <div class="gallery-stage">
+        <div class="gallery-track" tabindex="0">
+          <figure>
+            <img src="imagenes/webp/maia%20en%20vivo%20mear4.00_00_00_09.Imagen%20fija001_resized.webp" width="1080" height="720" alt="Registro en vivo de la performance.">
+          </figure>
+          <figure>
+            <img src="imagenes/webp/maia%20en%20vivo%20mear4.00_00_02_09.Imagen%20fija002_resized.webp" width="1080" height="720" loading="lazy" alt="Cuerpo y luz en escena.">
+          </figure>
+          <figure>
+            <video
+              muted
+              loop
+              playsinline
+              controls
+              preload="metadata"
+              width="576"
+              height="1280"
+              src="imagenes/webp/WhatsApp%20Video%202026-09-01%20at%2020.28.19_resized.mp4"
+            ></video>
+          </figure>
+          <figure>
+            <img src="imagenes/webp/maia%20en%20vivo%20mear4.00_00_05_27.Imagen%20fija003_resized.webp" width="1920" height="1280" loading="lazy" alt="Toma en vivo de OCUPADAS.">
+          </figure>
+          <figure>
+            <img src="imagenes/webp/maia%20en%20vivo%20mear4.00_00_03_27.Imagen%20fija004_resized.webp" width="1920" height="1280" loading="lazy" alt="Momento de la performance en vivo.">
+          </figure>
+          <figure>
+            <img src="imagenes/webp/maia%20en%20vivo%20mear4.00_00_03_53.Imagen%20fija005_resized.webp" width="1920" height="1280" loading="lazy" alt="Cierre de un pasaje en vivo.">
+          </figure>
+          <figure>
+            <img src="imagenes/webp/rocio%20camara_resized.webp" width="492" height="706" loading="lazy" alt="Cámara y mesa de trabajo durante la obra.">
+          </figure>
+          <figure>
+            <img src="imagenes/webp/WhatsApp%20Image%202025-04-26%20at%2011.31.58_resized_1.webp" width="590" height="1280" loading="lazy" alt="Procesamiento visual en vivo frente a las pantallas.">
+          </figure>
+          <figure>
+            <img src="imagenes/webp/WhatsApp%20Image%202026-02-11%20at%2018.44.10_resized.webp" width="720" height="1280" loading="lazy" alt="Monitores CRT y hardware de video en el estudio.">
+          </figure>
+          <figure>
+            <img src="imagenes/webp/maia_resized.webp" width="1024" height="682" loading="lazy" alt="Performance de OCUPADAS: cuerpo, luz y escena.">
+          </figure>
+        </div>
+
+        <div class="gallery-controls">
+          <button type="button" data-gallery="prev" aria-label="Imagen anterior">←</button>
+          <button type="button" data-gallery="next" aria-label="Imagen siguiente">→</button>
+        </div>
+      </div>
+
+      <aside class="gallery-copy">
+        <p>
+          Su colaboración se sostiene en una búsqueda común: crear lenguajes sensibles y mutantes, donde la experimentación tecnológica, el cuerpo y la imaginación crítica abren formas de encuentro.
+        </p>
+      </aside>
+    </section>
+
+    <section class="manifesto">
+      <h2>Las máquinas también son territorio.</h2>
+
+      <div class="manifesto-text">
+        <p>
+          Las máquinas ocupadas no son herramientas neutrales ni objetos que
+          solo buscan ser utilizados. Son territorios que se intervienen y se
+          habitan con el cuerpo: movimiento, contacto y presión en medio del
+          caos cotidiano.
+        </p>
+
+        <p>
+          Entre la maternidad y el arte en la ruralidad patagónica, la obra
+          abre un espacio para volver la mirada hacia nosotras mismas.
+          Porque estamos tan ocupadas en otrxs que necesitamos ocuparnos
+          de nuestra obra: siendo juntas.
+        </p>
+
+        <span class="manifesto-mark">
+          Hacer ruido, romper la imagen, explorar el error de esta existencia, darle valor a lo privado y cuidarse
+        </span>
+      </div>
+    </section>
+
+    <section class="practices" id="practicas">
+      <div class="section-head">
+        <div>
+          <div class="section-label">02 / Materia sensible</div>
+          <h2>CUERPAS que tocan. Máquinas que responden.</h2>
+        </div>
+
+        <p>
+          La obra articula prácticas analógicas, digitales y sonoras para
+          construir una experiencia siempre inédita. Máquinas construidas a mano, explorar nuestra sensibilidad juntas, registrarnos.
+        </p>
+      </div>
+
+      <div class="practice-grid">
+
+        <article class="practice">
+          <span class="practice-number">01</span>
+
+          <div>
+            <h3>Ruido</h3>
+            <p>
+              Noise, paisaje sonoro, voz, hardware hacking y frecuencias
+              que se vuelven presencia.
+            </p>
+          </div>
+        </article>
+
+        <article class="practice">
+          <span class="practice-number">02</span>
+
+          <div>
+            <h3>Cuerpo</h3>
+            <p>
+              Contacto, presión, movimiento y vision y escucha profunda: el cuerpo
+              como instrumento y territorio.
+            </p>
+          </div>
+        </article>
+
+        <article class="practice">
+          <span class="practice-number">03</span>
+
+          <div>
+            <h3>Glitch</h3>
+            <p>
+              Error, desvío y falla como lenguaje. Lo que se rompe abre
+              otra forma de mirar y hacer.
+            </p>
+          </div>
+        </article>
+
+        <article class="practice">
+          <span class="practice-number">04</span>
+
+          <div>
+            <h3>Materia</h3>
+            <p>
+              Máquinas, objetos, textiles, archivo, territorio y tecnologías
+              obsoletas en mutación.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="artists">
+      <div class="section-head">
+        <div>
+          <div class="section-label">03 / Las prácticas</div>
+          <h2>Dos recorridos. Un espacio compartido.</h2>
+        </div>
+      </div>
+
+      <div class="artist-list">
+
+        <article class="artist">
+          <h3>
+            Rocío Mio
+            <span>
+              artista multimedia · directora creativa · gestora cultural
+            </span>
+          </h3>
+
+          <p>
+            Trabaja con video, instalaciones y performance, sonido, glitch,
+            gifs, bordado y textiles, máquinas mecánicas y técnicas analógicas
+            que atraviesan procesos de digitalización. Explora la poesía,
+            los territorios, la materialidad y el error como lenguaje.
+            Su investigación se enlaza con el archivo, la luz y la materia
+            en la Patagonia.
+          </p>
+        </article>
+
+        <article class="artist">
+          <h3>
+            Maia Koenig
+            <span>
+              RRayen · artista sonora · poeta · performer
+            </span>
+          </h3>
+
+          <p>
+            Su trabajo articula ruido, cuerpo, ritual y tecnología desde una
+            práctica de escucha profunda y una gestión feminista y comunitaria
+            de la música experimental. Construye herramientas propias con
+            sintetizadores caseros, circuit bending, retroconsolas y objetos
+            intervenidos. La maternidad atraviesa sus tiempos, preguntas y
+            formas de crear comunidad.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="collaboration" id="aletas">
+      <div class="section-head">
+        <div>
+          <div class="section-label">04 / Última colaboración</div>
+          <h2>Aletas:</h2>
+        </div>
+      </div>
+
+      <div class="collaboration-layout">
+        <div class="collaboration-player">
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            width="100%"
+            src="https://assets.objkt.media/file/assets-003/bafybeifiuycdds67frnuipllo4ywaw2wopgeexpvnpwznimzc4j6kx4dhi/artifact"
+          >
+            Tu navegador no puede reproducir este video.
+          </video>
+        </div>
+
+        <div class="collaboration-copy">
+          <h3>Aletas (Biomasa)</h3>
+
+          <p>
+            En "Aletas", la programación musical en hardware interactúa de forma
+            directa con la síntesis de video en tiempo real. La pieza sonora,
+            creada por Maia Koenig con Little Sound DJ en una Gameboy Dmg01,
+            se construye mediante código hexadecimal que entrelaza paneos y
+            canales de ruido bajo un concepto de transformación de energía.
+          </p>
+
+          <p>
+            Fue inspirado en delfines oníricos que dejan ver sus aletas sonoramente.
+          </p>
+
+          <p>
+            Para el ecosistema visual, se utilizaron los registros originales de
+            Maia para componer una red generativa de imágenes impulsada
+            enteramente por la señal de audio. Mediante un sistema de
+            procesamiento nodal y análisis de espectro, cada frecuencia, ruido
+            o interferencia del track se mapea para alterar paramétricamente
+            la imagen. El sonido actúa como un modulador físico sobre el
+            lienzo digital: los quiebres de señal y la estática transforman
+            de manera reactiva la topología del video, asegurando que cada
+            partícula, color y movimiento sucedan desde ese contacto de
+            aletas sonoro.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <h2>
+        Ocuparnos<br>
+        también<br>
+        es crear.
+      </h2>
+
+      <div class="closing-copy">
+        <p>
+          OCUPADAS dialoga constantemente con la fuga: una experiencia que
+          se transforma en cada encuentro, entre la improvisación, la
+          presencia y el sonido.
+        </p>
+
+        <p>
+          Una obra para habitar la escena, hacer vibrar la máquina y abrir
+          un lugar para nosotras.
+        </p>
+      </div>
+    </section>
+
+    <section class="rider" id="rider">
+      <div>
+        <div class="section-label">05 / Producción</div>
+        <h2>Rider técnico</h2>
+        <p class="rider-credits">
+          OCUPADAS<br>
+          Visuales: Rocío Mío<br>
+          Música: Maia Koenig
+        </p>
+      </div>
+
+      <div class="rider-body">
+        <article class="rider-block">
+          <h3>Sonido</h3>
+          <ul>
+            <li>Sistema de sonido estéreo (PA estéreo, no mono).</li>
+            <li>Consola / mesa de sonido con al menos 2 entradas disponibles para la señal estéreo.</li>
+          </ul>
+        </article>
+
+        <article class="rider-block">
+          <h3>Mobiliario</h3>
+          <ul>
+            <li>Una mesa de 2 m × 1 m, ubicada en el centro de la escena.</li>
+            <li>La mesa es compartida: música (Maia Koenig) y dispositivos de visuales (Rocío Mío) conviven en la misma mesa, no hay puestos separados ni distribución en profundidad.</li>
+            <li>Una luz de mesa (lámpara) para iluminar el puesto de trabajo sobre la mesa.</li>
+          </ul>
+        </article>
+
+        <article class="rider-block">
+          <h3>Proyección</h3>
+          <ul>
+            <li>Un proyector con entrada HDMI.</li>
+            <li>Cable HDMI largo, para poder ubicar el dispositivo de reproducción lejos del proyector.</li>
+            <li>El dispositivo de reproducción de video se conecta cerca del proyector (previsión de cable corto adicional si hace falta).</li>
+          </ul>
+        </article>
+
+        <article class="rider-block">
+          <h3>Elementos adicionales (a confirmar disponibilidad)</h3>
+          <ul>
+            <li>Televisores viejos / en desuso — de ser posible conseguir, a coordinar cantidad con la producción de la sala.</li>
+          </ul>
+        </article>
+
+        <article class="rider-block">
+          <h3>Electricidad</h3>
+          <ul>
+            <li>Tomas eléctricas cercanas al área de mesa/proyección para sonido, luz de mesa, proyector y televisores.</li>
+          </ul>
+        </article>
+
+        <p class="rider-note">
+          Contacto de producción: a completar según sala / festival.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="contact" id="contacto">
+    <h2>
+      ¿Armamos<br>
+      un espacio?
+    </h2>
+
+    <div class="contact-copy">
+      <p>
+        Disponible para presentaciones, performances, laboratorios,
+        residencias y proyectos culturales.
+      </p>
+
+      <div class="link-row">
+        <a href="mailto:bosquegracias@gmail.com">
+          Escribir por mail ↗
+        </a>
+
+        <a href="https://rociomio.github.io/rociomio/">
+          Rocío Mio ↗
+        </a>
+
+        <a href="https://site.zapia.com/jke52oo9">
+          Maia Koenig / RRayen ↗
+        </a>
+
+        <a href="https://maiakoenig.bandcamp.com/">
+          Escuchar música ↗
+        </a>
+
+        <a href="https://www.instagram.com/MAIAKOENIG/">
+          Instagram ↗
+        </a>
+      </div>
+
+      <p class="source-note">
+        Proyecto editorial construido a partir de los archivos y sitios de
+        Rocío Mio y Maia Koenig / RRayen. Texto de obra: OCUPADAS.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Site navigation - keep links visible on desktop; close the mobile menu after a jump.
+    (function () {
+      var panel = document.querySelector('.nav-panel');
+      if (!panel) return;
+
+      var desktopNav = window.matchMedia('(min-width: 721px)');
+
+      function syncNav() {
+        if (desktopNav.matches) panel.setAttribute('open', '');
+        else panel.removeAttribute('open');
+      }
+
+      syncNav();
+      desktopNav.addEventListener('change', syncNav);
+
+      panel.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          if (!desktopNav.matches) panel.removeAttribute('open');
+        });
+      });
+    })();
+
+    // Gallery controls - move to the next or previous figure without stretching slides.
+    (function () {
+      var track = document.querySelector('.gallery-track');
+      var prev = document.querySelector('[data-gallery="prev"]');
+      var next = document.querySelector('[data-gallery="next"]');
+
+      if (!track || !prev || !next) return;
+
+      function currentIndex() {
+        var figures = track.querySelectorAll('figure');
+        var index = 0;
+        var left = track.scrollLeft;
+
+        for (var i = 0; i < figures.length; i++) {
+          if (figures[i].offsetLeft <= left + 24) index = i;
+        }
+
+        return index;
+      }
+
+      function slide(direction) {
+        var figures = track.querySelectorAll('figure');
+        var nextIndex = Math.min(figures.length - 1, Math.max(0, currentIndex() + direction));
+        var target = figures[nextIndex];
+
+        if (!target) return;
+
+        track.scrollTo({ left: target.offsetLeft, behavior: 'smooth' });
+      }
+
+      prev.addEventListener('click', function () { slide(-1); });
+      next.addEventListener('click', function () { slide(1); });
+    })();
+  </script>
+
+</body>
+</html>
