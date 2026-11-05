@@ -30,9 +30,9 @@
     :root {
       --ink: #171717;
       --paper: #efe9dd;
-      --acid: #c8f21a;
-      --violet: #9c68ff;
-      --rust: #d65b36;
+      --acid: #ffe400;
+      --violet: #274eb4;
+      --rust: #e27683;
       --line: rgba(23,23,23,.24);
       --muted: #625e57;
     }
@@ -101,9 +101,22 @@
       grid-template-columns: 1.3fr .7fr;
       gap: 5vw;
       align-items: end;
-      background: var(--ink);
+      align-content: end;
+      background: #111 url("en-vivo/nerd/header.jpg") center / cover no-repeat;
       color: var(--paper);
       position: relative;
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(17,17,17,0) 46%, rgba(17,17,17,.55) 100%);
+    }
+
+    .hero > * {
+      position: relative;
+      z-index: 1;
     }
 
     .eyebrow,
@@ -119,7 +132,7 @@
       z-index: 1;
       margin: 26px 0 24px;
       max-width: 100%;
-      font-size: clamp(3.1rem, 12vw, 13rem);
+      font-size: clamp(2.8rem, 7vw, 7.2rem);
       line-height: .79;
       letter-spacing: -.09em;
       font-weight: 900;
@@ -129,8 +142,9 @@
       position: relative;
       z-index: 1;
       max-width: 340px;
-      align-self: start;
-      margin-top: 3vw;
+      align-self: end;
+      margin-top: 0;
+      margin-bottom: 24px;
       font-family: Georgia, serif;
       font-size: clamp(1.1rem, 2vw, 1.6rem);
       line-height: 1.18;
@@ -151,13 +165,18 @@
     }
 
     .intro {
-      padding: 10vw 4vw 11vw;
+      padding: 5vw 4vw 6vw;
+      background: var(--paper);
       display: grid;
-      grid-template-columns: .55fr 1.45fr;
-      gap: 6vw;
+      grid-template-columns: minmax(240px, .72fr) minmax(0, 1.28fr);
+      gap: 5vw;
+      align-items: start;
     }
 
-    .intro h2,
+    .intro-head {
+      padding: 0;
+    }
+
     .manifesto h2 {
       margin: 0;
       font-size: clamp(2.2rem, 5vw, 5.5rem);
@@ -165,20 +184,42 @@
       letter-spacing: -.065em;
     }
 
-    .intro-copy {
-      max-width: 780px;
+    .obra-list {
+      margin: 22px 0 0;
+      padding: 0;
+      list-style: none;
+      max-width: 12em;
       font-family: Georgia, serif;
-      font-size: clamp(1.45rem, 3vw, 2.75rem);
-      line-height: 1.08;
-      letter-spacing: -.025em;
+      font-size: clamp(1.7rem, 4vw, 3.8rem);
+      line-height: 1.02;
+      letter-spacing: -.035em;
     }
 
-    .intro-copy p {
-      margin: 0 0 1em;
+    .obra-list li + li {
+      margin-top: .18em;
     }
 
-    .intro-copy p:last-child {
-      margin-bottom: 0;
+    .obra-video {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      overflow: hidden;
+    }
+
+    .obra-video iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .obra-caption {
+      margin: 14px 0 0;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .08em;
     }
 
     .manifesto {
@@ -264,11 +305,12 @@
 
     .practice:nth-child(2) {
       background: var(--violet);
+      color: var(--paper);
     }
 
     .practice:nth-child(3) {
       background: var(--rust);
-      color: var(--paper);
+      color: var(--ink);
     }
 
     .practice:nth-child(4) {
@@ -343,6 +385,7 @@
     .closing {
       padding: 9vw 4vw 10vw;
       background: var(--violet);
+      color: var(--paper);
       display: grid;
       grid-template-columns: 1.1fr .9fr;
       gap: 7vw;
@@ -473,6 +516,10 @@
       line-height: 1.5;
     }
 
+    .gallery + .gallery {
+      border-top: 1px solid rgba(239,233,221,.22);
+    }
+
     .gallery {
       padding: 0 0 0 4vw;
       background: var(--ink);
@@ -488,6 +535,7 @@
     }
 
     .gallery-track {
+      box-sizing: border-box;
       display: flex;
       align-items: center;
       gap: 20px;
@@ -563,11 +611,70 @@
 
     .gallery-copy p {
       margin: 0;
-      max-width: 22ch;
+      max-width: 34ch;
       font-family: Georgia, serif;
       font-size: clamp(1.55rem, 2.6vw, 2.55rem);
       line-height: 1.12;
       letter-spacing: -.03em;
+    }
+
+    .gallery-copy h3 {
+      margin: 0 0 18px;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: .9;
+      letter-spacing: -.05em;
+    }
+
+    .gallery-copy p.gallery-note {
+      margin: 0;
+      max-width: 36ch;
+      font-family: Georgia, serif;
+      font-size: .9rem;
+      line-height: 1.45;
+      letter-spacing: 0;
+    }
+
+    .gallery-note + .gallery-note {
+      margin-top: .85em;
+    }
+
+    .show-copy {
+      box-sizing: border-box;
+      height: min(86vh, 820px);
+      min-height: 0;
+      overflow: hidden;
+      justify-content: center;
+      padding: 36px 4vw 36px 5vw;
+    }
+
+    .show-copy h3 {
+      font-size: clamp(1.7rem, 3vw, 2.6rem);
+      margin-bottom: 14px;
+    }
+
+    .show-notes {
+      max-height: 6.8em;
+      overflow: hidden;
+    }
+
+    .show-notes.is-open {
+      max-height: calc(100% - 7.5rem);
+      overflow-y: auto;
+    }
+
+    .show-more {
+      align-self: flex-start;
+      margin-top: 14px;
+      padding: 0;
+      border: 0;
+      background: none;
+      color: var(--acid);
+      font: inherit;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: lowercase;
+      cursor: pointer;
     }
 
     .collaboration {
@@ -622,6 +729,91 @@
       margin-bottom: 0;
     }
 
+    .agenda {
+      padding: 9vw 4vw;
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .agenda .section-head p {
+      color: rgba(239,233,221,.78);
+    }
+
+    .agenda-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid rgba(239,233,221,.22);
+    }
+
+    .agenda-item {
+      display: grid;
+      grid-template-columns: minmax(220px, .7fr) minmax(0, 1.3fr);
+      gap: 5vw;
+      padding: 42px 0;
+      border-bottom: 1px solid rgba(239,233,221,.22);
+    }
+
+    .agenda-date {
+      display: block;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .agenda-flag {
+      display: inline-block;
+      margin: 16px 0 22px;
+      padding: 7px 10px;
+      background: var(--acid);
+      color: var(--ink);
+      font-size: .66rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .agenda-item h3 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 4vw, 4rem);
+      line-height: .9;
+      letter-spacing: -.06em;
+    }
+
+    .agenda-place {
+      margin: 0 0 18px;
+      color: rgba(239,233,221,.72);
+      font-size: .92rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .agenda-copy {
+      margin: 0;
+      max-width: 42ch;
+      font-family: Georgia, serif;
+      font-size: clamp(1.05rem, 1.7vw, 1.28rem);
+      line-height: 1.28;
+    }
+
+    .agenda-media {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .agenda-media img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: min(100%, 380px);
+      max-height: 420px;
+      object-fit: contain;
+      background: #0b0b0b;
+    }
+
     @media (max-width: 1080px) {
       .gallery {
         padding: 0;
@@ -644,9 +836,20 @@
         max-width: none;
       }
 
+      .show-copy {
+        height: min(64vh, 560px);
+        min-height: 0;
+        padding: 28px 6vw;
+      }
+
       .collaboration-layout {
         grid-template-columns: 1fr;
         gap: 32px;
+      }
+
+      .agenda-item {
+        grid-template-columns: 1fr;
+        gap: 28px;
       }
     }
 
@@ -695,7 +898,7 @@
       }
 
       .hero h1 {
-        font-size: clamp(2.7rem, 16vw, 4.4rem);
+        font-size: clamp(2.4rem, 12vw, 3.6rem);
         letter-spacing: -.06em;
       }
 
@@ -724,7 +927,14 @@
       }
 
       .intro {
-        padding-top: 18vw;
+        padding-top: 12vw;
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+
+      .obra-list {
+        max-width: none;
+        font-size: clamp(1.55rem, 8vw, 2.6rem);
       }
 
       .section-head {
@@ -769,7 +979,7 @@
 
     @media (max-width: 420px) {
       .hero h1 {
-        font-size: clamp(2.5rem, 15vw, 3.6rem);
+        font-size: clamp(2.2rem, 11vw, 3rem);
       }
 
       .gallery-track {
@@ -792,8 +1002,9 @@
       <summary>Menú</summary>
       <div class="nav-links">
         <a href="#obra">La obra</a>
+        <a href="#archivo">Cuerpas</a>
         <a href="#practicas">Prácticas</a>
-        <a href="#aletas">Aletas</a>
+        <a href="#colaboraciones">Performance</a>
         <a href="#rider">Rider</a>
         <a href="#contacto">Contacto</a>
       </div>
@@ -819,16 +1030,32 @@
   <main>
 
     <section class="intro" id="obra">
-      <div>
+      <div class="intro-head">
         <div class="section-label">01 / La obra</div>
-        <h2>Ocupar lo que siempre fue nuestro.</h2>
+        <ul class="obra-list">
+          <li>Ocupar la escena.</li>
+          <li>Ocupar la máquina.</li>
+          <li>Ocupar el espacio.</li>
+          <li>Ocupar el tiempo.</li>
+          <li>Ocupar esta experiencia.</li>
+        </ul>
       </div>
 
-      <div class="intro-copy">
-        <p>
-          Ocupar la escena. Ocupar la máquina. Ocupar el espacio.
-          Ocupar el tiempo. Ocupar esta experiencia.
-        </p>
+      <div>
+        <div class="obra-video">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/4fit0ILaNqg?si=ao32YokyKDEPSiDb"
+            title="YouTube video player"
+            frameborder="0"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <p class="obra-caption">OCUPADAS . Live AV Festival Ne:Rd 2026</p>
       </div>
     </section>
 
@@ -836,7 +1063,7 @@
       <div class="gallery-stage">
         <div class="gallery-track" tabindex="0">
           <figure>
-            <img src="imagenes/webp/maia%20en%20vivo%20mear4.00_00_00_09.Imagen%20fija001_resized.webp" width="1080" height="720" alt="Registro en vivo de la performance.">
+            <img src="en-vivo/nerd/NERD%20-%20Jornada%203%20(64).jpg" width="3333" height="2222" alt="Performance de OCUPADAS en el Festival Ne:RD, Jornada 3.">
           </figure>
           <figure>
             <img src="imagenes/webp/maia%20en%20vivo%20mear4.00_00_02_09.Imagen%20fija002_resized.webp" width="1080" height="720" loading="lazy" alt="Cuerpo y luz en escena.">
@@ -884,7 +1111,7 @@
 
       <aside class="gallery-copy">
         <p>
-          Su colaboración se sostiene en una búsqueda común: crear lenguajes sensibles y mutantes, donde la experimentación tecnológica, el cuerpo y la imaginación crítica abren formas de encuentro.
+          Su colaboración se sostiene en una búsqueda común: crear lenguajes sensibles y mutantes, donde la experimentación tecnológica, el cuerpo y la imaginación crítica abren formas de encuentro. Su performance expone audio y video creados a partir de señales en vivo, una puesta en marcha del territorio cuerpo para a través de las máquinas crear el objeto artístico.
         </p>
       </aside>
     </section>
@@ -979,6 +1206,146 @@
       </div>
     </section>
 
+    <section class="gallery" id="colaboraciones" aria-label="Ne:RD">
+      <div class="gallery-stage">
+        <div class="gallery-track" tabindex="0">
+          <figure>
+            <img src="en-vivo/nerd/NERD%20-%20Jornada%203%20(70).jpg" width="3333" height="2222" alt="Detalle de la performance en Ne:RD.">
+          </figure>
+          <figure>
+            <img src="en-vivo/nerd/NERD%20-%20Jornada%203%20(64).jpg" width="3333" height="2222" loading="lazy" alt="OCUPADAS en el Live AV del Festival Ne:RD.">
+          </figure>
+          <figure>
+            <img src="en-vivo/nerd/NERD%20-%20Jornada%203%20(65).jpg" width="3333" height="2222" loading="lazy" alt="Performance en el CEC, Jornada 3.">
+          </figure>
+          <figure>
+            <img src="en-vivo/nerd/NERD%20-%20Jornada%203%20(67).jpg" width="3333" height="2222" loading="lazy" alt="Mesa de sonido y visuales en Ne:RD.">
+          </figure>
+          <figure>
+            <img src="en-vivo/nerd/NERD%20-%20Jornada%203%20(68).jpg" width="3333" height="2222" loading="lazy" alt="Señal en vivo sobre la pantalla del festival.">
+          </figure>
+          <figure>
+            <img src="en-vivo/nerd/NERD%20-%20Jornada%203%20(69).jpg" width="3333" height="2222" loading="lazy" alt="Maia Koenig y Rocío Mio en escena.">
+          </figure>
+          <figure>
+            <img src="en-vivo/nerd/NERD%20-%20Jornada%203%20(72).jpg" width="3333" height="2222" loading="lazy" alt="Cierre de la jornada en el CEC.">
+          </figure>
+          <figure>
+            <img src="en-vivo/nerd/promo-1.png" width="561" height="755" loading="lazy" alt="Grilla del Festival Ne:RD con OCUPADAS.">
+          </figure>
+        </div>
+        <div class="gallery-controls">
+          <button type="button" data-gallery="prev" aria-label="Imagen anterior">←</button>
+          <button type="button" data-gallery="next" aria-label="Imagen siguiente">→</button>
+        </div>
+      </div>
+      <aside class="gallery-copy show-copy">
+        <h3>Ne:RD</h3>
+        <div class="show-notes">
+          <p class="gallery-note">
+            Seleccionadas para el Live AV el 4 de octubre de 2026, en CEC Rosario, Santa Fe.
+            Performance analógica en visuales y sonido por Maia Koenig y Rocío Mio.
+            Música creada con hardware analógico y bendings de Maia Koenig. Visuales creadas con Handycam, procesada con sintetizadores de video analógicos en vivo.
+          </p>
+        </div>
+        <button type="button" class="show-more" hidden aria-expanded="false">leer +</button>
+      </aside>
+    </section>
+
+    <section class="gallery" id="sonodelia" aria-label="Sonodelia">
+      <div class="gallery-stage">
+        <div class="gallery-track" tabindex="0">
+          <figure>
+            <img src="en-vivo/sonodelia/promo-1.jpg" width="1080" height="1080" alt="Flyer de Sonodelia: Glitch, Maia Koenig y Rocío Mio.">
+          </figure>
+          <figure>
+            <img src="en-vivo/sonodelia/promo-2.jpg" width="1080" height="1080" loading="lazy" alt="Flyer de presentación de Sonodelia.">
+          </figure>
+        </div>
+        <div class="gallery-controls">
+          <button type="button" data-gallery="prev" aria-label="Imagen anterior">←</button>
+          <button type="button" data-gallery="next" aria-label="Imagen siguiente">→</button>
+        </div>
+      </div>
+      <aside class="gallery-copy show-copy">
+        <h3>Sonodelia</h3>
+        <div class="show-notes">
+          <p class="gallery-note">
+            Concierto silent concert, en Sonodelia, Rosario, junto a Ivan Topolevsky en música y Levsky en las visuales.
+          </p>
+        </div>
+        <button type="button" class="show-more" hidden aria-expanded="false">leer +</button>
+      </aside>
+    </section>
+
+    <section class="gallery" id="aletas" aria-label="Aletas">
+      <div class="gallery-stage">
+        <div class="gallery-track" tabindex="0">
+          <figure>
+            <video
+              controls
+              playsinline
+              preload="metadata"
+              poster="imagenes/video/aletas-poster.jpg"
+              width="1280"
+              height="720"
+              src="imagenes/video/aletas.mp4"
+            >
+              Tu navegador no puede reproducir este video.
+            </video>
+          </figure>
+        </div>
+      </div>
+      <aside class="gallery-copy show-copy">
+        <h3>Aletas</h3>
+        <div class="show-notes">
+          <p class="gallery-note">
+            En "Aletas", la programación musical en hardware interactúa de forma
+            directa con la síntesis de video en tiempo real. La pieza sonora,
+            creada por Maia Koenig con Little Sound DJ en una Gameboy Dmg01,
+            se construye mediante código hexadecimal que entrelaza paneos y
+            canales de ruido bajo un concepto de transformación de energía.
+          </p>
+          <p class="gallery-note">
+            Fue inspirado en delfines oníricos que dejan ver sus aletas sonoramente.
+          </p>
+          <p class="gallery-note">
+            Para el ecosistema visual, se utilizaron los registros originales de
+            Maia para componer una red generativa de imágenes impulsada
+            enteramente por la señal de audio. Mediante un sistema de
+            procesamiento nodal y análisis de espectro, cada frecuencia, ruido
+            o interferencia del track se mapea para alterar paramétricamente
+            la imagen. El sonido actúa como un modulador físico sobre el
+            lienzo digital: los quiebres de señal y la estática transforman
+            de manera reactiva la topología del video, asegurando que cada
+            partícula, color y movimiento sucedan desde ese contacto de
+            aletas sonoro.
+          </p>
+        </div>
+        <button type="button" class="show-more" hidden aria-expanded="false">leer +</button>
+      </aside>
+    </section>
+
+    <section class="closing">
+      <h2>
+        ocuparnos<br>
+        de crear
+      </h2>
+
+      <div class="closing-copy">
+        <p>
+          OCUPADAS dialoga constantemente con la fuga: una experiencia que
+          se transforma en cada encuentro, entre la improvisación, la
+          presencia y el sonido.
+        </p>
+
+        <p>
+          Una obra para habitar la escena, hacer vibrar la máquina y abrir
+          un lugar para nosotras.
+        </p>
+      </div>
+    </section>
+
     <section class="artists">
       <div class="section-head">
         <div>
@@ -1025,80 +1392,6 @@
           </p>
         </article>
 
-      </div>
-    </section>
-
-    <section class="collaboration" id="aletas">
-      <div class="section-head">
-        <div>
-          <div class="section-label">04 / Última colaboración</div>
-          <h2>Aletas:</h2>
-        </div>
-      </div>
-
-      <div class="collaboration-layout">
-        <div class="collaboration-player">
-          <video
-            controls
-            playsinline
-            preload="metadata"
-            width="100%"
-            poster="imagenes/video/aletas-poster.jpg"
-            src="imagenes/video/aletas.mp4"
-          >
-            Tu navegador no puede reproducir este video.
-          </video>
-        </div>
-
-        <div class="collaboration-copy">
-          <h3>Aletas (Biomasa)</h3>
-
-          <p>
-            En "Aletas", la programación musical en hardware interactúa de forma
-            directa con la síntesis de video en tiempo real. La pieza sonora,
-            creada por Maia Koenig con Little Sound DJ en una Gameboy Dmg01,
-            se construye mediante código hexadecimal que entrelaza paneos y
-            canales de ruido bajo un concepto de transformación de energía.
-          </p>
-
-          <p>
-            Fue inspirado en delfines oníricos que dejan ver sus aletas sonoramente.
-          </p>
-
-          <p>
-            Para el ecosistema visual, se utilizaron los registros originales de
-            Maia para componer una red generativa de imágenes impulsada
-            enteramente por la señal de audio. Mediante un sistema de
-            procesamiento nodal y análisis de espectro, cada frecuencia, ruido
-            o interferencia del track se mapea para alterar paramétricamente
-            la imagen. El sonido actúa como un modulador físico sobre el
-            lienzo digital: los quiebres de señal y la estática transforman
-            de manera reactiva la topología del video, asegurando que cada
-            partícula, color y movimiento sucedan desde ese contacto de
-            aletas sonoro.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="closing">
-      <h2>
-        Ocuparnos<br>
-        también<br>
-        es crear.
-      </h2>
-
-      <div class="closing-copy">
-        <p>
-          OCUPADAS dialoga constantemente con la fuga: una experiencia que
-          se transforma en cada encuentro, entre la improvisación, la
-          presencia y el sonido.
-        </p>
-
-        <p>
-          Una obra para habitar la escena, hacer vibrar la máquina y abrir
-          un lugar para nosotras.
-        </p>
       </div>
     </section>
 
@@ -1226,38 +1519,59 @@
       });
     })();
 
-    // Gallery controls - move to the next or previous figure without stretching slides.
+    // Gallery controls - each carousel moves on its own, without stretching slides.
     (function () {
-      var track = document.querySelector('.gallery-track');
-      var prev = document.querySelector('[data-gallery="prev"]');
-      var next = document.querySelector('[data-gallery="next"]');
+      document.querySelectorAll('.gallery').forEach(function (gallery) {
+        var track = gallery.querySelector('.gallery-track');
+        var prev = gallery.querySelector('[data-gallery="prev"]');
+        var next = gallery.querySelector('[data-gallery="next"]');
 
-      if (!track || !prev || !next) return;
+        if (!track || !prev || !next) return;
 
-      function currentIndex() {
-        var figures = track.querySelectorAll('figure');
-        var index = 0;
-        var left = track.scrollLeft;
+        function currentIndex() {
+          var figures = track.querySelectorAll('figure');
+          var index = 0;
+          var left = track.scrollLeft;
 
-        for (var i = 0; i < figures.length; i++) {
-          if (figures[i].offsetLeft <= left + 24) index = i;
+          for (var i = 0; i < figures.length; i++) {
+            if (figures[i].offsetLeft <= left + 24) index = i;
+          }
+
+          return index;
         }
 
-        return index;
-      }
+        function slide(direction) {
+          var figures = track.querySelectorAll('figure');
+          var nextIndex = Math.min(figures.length - 1, Math.max(0, currentIndex() + direction));
+          var target = figures[nextIndex];
 
-      function slide(direction) {
-        var figures = track.querySelectorAll('figure');
-        var nextIndex = Math.min(figures.length - 1, Math.max(0, currentIndex() + direction));
-        var target = figures[nextIndex];
+          if (!target) return;
 
-        if (!target) return;
+          track.scrollTo({ left: target.offsetLeft, behavior: 'smooth' });
+        }
 
-        track.scrollTo({ left: target.offsetLeft, behavior: 'smooth' });
-      }
+        prev.addEventListener('click', function () { slide(-1); });
+        next.addEventListener('click', function () { slide(1); });
+      });
+    })();
 
-      prev.addEventListener('click', function () { slide(-1); });
-      next.addEventListener('click', function () { slide(1); });
+    // Show notes - keep each description at gallery height and open the long ones.
+    (function () {
+      document.querySelectorAll('.show-copy').forEach(function (copy) {
+        var notes = copy.querySelector('.show-notes');
+        var button = copy.querySelector('.show-more');
+
+        if (!notes || !button) return;
+        if (notes.scrollHeight <= notes.clientHeight + 1) return;
+
+        button.hidden = false;
+
+        button.addEventListener('click', function () {
+          var open = notes.classList.toggle('is-open');
+          button.textContent = open ? 'leer −' : 'leer +';
+          button.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      });
     })();
   </script>
 
